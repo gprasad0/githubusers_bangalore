@@ -21,6 +21,10 @@ class App extends Component {
     
   };
 
+  componentWillMount = () => {
+
+  }
+
   userSearchTerm = async (value, value1) => {
     this.setState({
       searchTerm:value,
@@ -48,11 +52,11 @@ class App extends Component {
     return (
       <div className="ui container">
         <SearchBar userSearchTerm={this.userSearchTerm} />
-        {!this.state.isLoading ? (
+        {/* {!this.state.isLoading ? ( */}
           <ImageCards data={this.state.data} index={this.index} />
-        ) : (
-          ""
-        )}
+        {/* ) : ( */}
+          {/* "" */}
+        {/* )} */}
       </div>
     );
   }
