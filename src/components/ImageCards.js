@@ -27,6 +27,16 @@ class ImageCards extends Component {
       })
     }
   }
+
+  componentWillReceiveProps=()=>{
+    if(this.props.data[0]){
+
+      this.setState({
+        avatar: this.props.data[0].avatar_url,
+        login: this.props.data[0].login
+      })
+    }
+  }
   onClickpage = index => {
     this.props.index(index);
   };
