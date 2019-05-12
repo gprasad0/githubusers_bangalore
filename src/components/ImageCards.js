@@ -6,8 +6,8 @@ class ImageCards extends Component {
   //   this.onClickpage = this.onClickpage.bind(this);
   // }
   state = {
-    avatar: this.props.data[0].avatar_url,
-    login: this.props.data[0].login
+    avatar: '',
+    login:  ''
   };
   onClickImage = (forks, avatar, login, html_url, score) => {
     this.setState({
@@ -18,13 +18,22 @@ class ImageCards extends Component {
       score
     });
   };
+  componentDidMount=()=>{
+    if(this.props.data[0]){
 
+      this.setState({
+        avatar: this.props.data[0].avatar_url,
+        login: this.props.data[0].login
+      })
+    }
+  }
   onClickpage = index => {
     this.props.index(index);
   };
 
   render() {
-    console.log("edeff", this.props.data[0].avatar_url);
+    // console.log("edeff", this.props.data[0].avatar_url);
+    // if(!this.props.data[0]) return ;
     let users = this.props.data;
     let s = [1, 2, 3, 4, 5];
     let pagination = s.map((page, index) => {
